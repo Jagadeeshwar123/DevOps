@@ -1,0 +1,329 @@
+DevOps :- DevOps is a process of improving the application delivery by ensuring that there is a proper automation and quality and continuous monitoring and there is a continuous testing
+
+***AWS***
+
+What is cloud :- Global network of server each with a unique function
+public cloud :- AWS, Azure, GCP
+Private Cloud :- VMware, HPE, IBM  etc:-
+
+IAM gives the authorization and authentication  . IAM can be used by anyone useful for read only access
+ whereas root user can change in the aws account
+ 
+users  
+groups
+policies
+roles
+
+EC2 instance :- Elastic cloud compute
+compute:- combination of cpu,ram and disk  (virtual server)
+elastic:- increase or decrease the resourse . elastic in nature
+Types of EC2 instances
+1)General purpose
+2)compute optimised
+3)memory optimised
+4)storage optimised
+5)accelerated compute
+
+
+Console sign-in URL
+
+https://663353808164.signin.aws.amazon.com/console
+User name
+
+test-user-501
+Console password
+
+h*fJ4|x{
+Hide
+
+
+virtualization:- a physical server brought from HP or IBM will install a hypervisor to not to waste the server with only one user 
+
+Hypervisor:- It is a software that can install virtual machines on physical server using logical isolation 
+some of the popular hypervisers is VMWARE , XEN
+
+Script for automation :- aws cli , aws api, aws cft , aws cdk ,TERRAFORM directly communicating with api
+
+
+Linux:- OS
+It is an open source s/w 
+it is very secure
+It is very fast
+It has many distributions EX:- CENTOS,FEDERO,UBUNTU, DEBIAN etc:-
+Architecture of a linux OS (KERNEL):-
+
+Kernel is the heart of linux , it is useful for establishing the communication b/w s/w and h/w
+Kernel has 4 primary responsibilities
+1)Device management
+2)Memory management
+3)Process management 
+4)handling system calls	
+
+System Libraries:-
+Is is responsible for performing a task . 
+
+Shell commands:-
+
+Using the command line we are communicating with the operating system with shell commands
+Shell commands is mostly useful for the linux operating system
+These commands are  same for all the distributions
+
+Commands :-
+
+ls - list (what all are available in a directory
+ls/etc/  :- it is useful for getting all the files in the system
+ls -a    :- it is used to show all files and directories including hidden ones within the specified directory
+cd - change directory
+cd .. - back to the previous directory
+cd../.. - back to previous previous directory
+mkdir - make directory
+rm  - remove the file
+rm -r   - remove a directory
+touch - it is used only to create a file
+vim :-  it is used to create and write something in a file at a time
+pwd - present working directory
+ls -ltr   - details of the files and directories in a particular directory
+vi   - create a file and write something inside the file
+after vi command hit escape and hit i to enable the field to enter the text , then again hit escape and enter :wq! to save the file
+cat   - to see what the text we have entered in a file without opening a file
+FOR SYSTEM PROPERTIES:-
+free -g  :- memory
+nproc :- number of cpu's used
+df -h :- disc size
+top  :- to see all the system properties in one place
+to exit from the top command press q
+man :- prefix as "man" used to know the funcionality of a command 
+(#!/) - shebang
+bash / dash/sh/ksh :- these are executables . these executables should be used as shebang/bin/any of the executable
+echo in linux should be used as same as print in java
+chmod :- it is used to grant the permissions . Ch - change , 
+chmod gives permissions to 3 things . they are 
+1)what is the permissions for you
+2)what is the permissions for your group
+3)what is the permissions for all users
+chmod uses 4, 2, 1 manner which says
+4 as read
+2 as write
+1 as execute
+and the chmod should be used along with numerics with the help of 4,2,1
+ex:-chmod 777 . it states that the permissions are granted to read,write and executre for you,your group and everyone
+    chmod 600 . it states that the permissions are granted to read and write only for you and no permissions for your group and everyone
+you                  
+your group
+everyone
+./filename - it is used to execute the shell script
+ctrl + c :- to stop the execution
+
+purpose of shell scripting in DevOps
+
+devops is responsible for 
+1)infrastructure management
+2)git code management
+3)configuration management
+for all these Linux will be useful
+ 
+ps -ef   :-ps stands for processess and f stands for format . this command is used to know what all the processess in the linux system
+          like stopped, running, deamon, background etc :-
+grep  :- it is used to get the information of a particular process it is used as :- ps -ef | grep "process that we need to know"
+         grp name filename  :- it will gives the name word highlighted
+grep -o  :- it says that "only" . if we want to print any particular letter or number we use "(grep -o "ltr/no" <<<"$x" | wc -l)" command
+
+pipe  :- grep will be used along with pipe (|) . it will sends the output from first command to the second command
+date  :- it will give the today's date and information
+ date is a system default command it will send the information to stdin but pipe will not read from stdin . 
+  so, date | echo "today's date"
+  it will print today's date word itself but not the date information
+awk  :- it is used to get the details of a particular column among all
+it is used in a format as ex:- (ps -ef | grep amazon | awk -F" " 'print $2')  , (grep name | awk -F" " '{print $4}')
+set -x  :- it is useful for debugging the script which will gives us what the command we used along with the output
+set -e  :- it is  used to throw an error at a particular point where the script is not correct . but it doesn't useful for the pipe
+           commands. it only takes the last function in a pipe argument
+set -o pipefail   :- it is used along with the set -e . it is useful for throwing an error at the point where script is not correct even
+                     for the pipe commands
+** we can use all at once by appending :- set -exo pipefail
+
+logfile  :- it is useful for finding the errors in log file
+curl  :- it is useful for retrieving the information from internet. as well as for the api requests and responses like postman  
+         it is used as curl logfile url
+         if want to know the particulars then use grep . EX:- for getting the error logs as ("curl logfile url | grep error")
+wget  :- it is as same as curl but here with wget it will download the logfile and by using cat command we can see the logfile info
+         if we want particulars then cat downloaded logfile name | grep error . whereas the curl will download and display the logfile
+         info
+sudo  :- sudo is used to navigate to the root user , it is used as "sudo su -" . Whenever we are in root user no need of using sudo
+         if we are in ubuntu user use "sudo" for performing actions on behalf of root user
+su    :- su stands for switch user by using this we can switch b/w the users . we can use this command as "su username"
+find  :- find is used to find the particular file inside a system it is used as 
+         1)if we are in root user "find / -name pam.d"
+         2)if we are in ubuntu user "sudo find / -name pam.d"
+if else loop  :-  it is used to write for the conditions . it can be used as
+               ex  :- a=2 , b=3 if [ $a < $b ] then echo "stmnt" else "stmnt" fi
+for loop      :- if we want to execute the script for multiple iterations . it can be used as
+              ex  :- for i in {1..100}; do echo $1; done
+                    for i in {1..100}
+                    do
+                        echo $i
+                    done	
+trap    :- it is useful for trapping the signals in linux
+kill    :- it is used to kill a process . it can be used as "kill -9 process name/process id"  
+
+traceroute is a tool used for the network debugging.
+traceroute google.com . it is useful for knowing the information of the hops 
+
+sort   :- sort is used for sorting something . linux has pre installed sort command
+
+CRONJOB   :-  it is useful for scheduling the time for doing something through the shell script
+
+aws s3 ls   :- it will print the s3 resources
+aws ec2 describe-instances   :-  it will print the ec2 resources
+aws lambda list-functions  :- it will print the lambda resources
+aws iam list-users         :- it will print the iam resources
+
+| more   :- it is used to read the output in a file mode
+jq       :- it is used to read the json
+
+aws ec2 describe-instances | jq '.;;;;;;[].;;;;;;[].;;;;;;'
+
+
+************************************************************GIT********************************************************
+
+FORK  :- it is a copy of entire original source
+git inti  :- it is used to initialize the empty git repository . it is used as ("git init")
+git status:- current git repository status . it is used as ("git status")
+git add   :-it is used to track the particular file status everytime . it is used as ("git add filename")
+git commit:-it is used to commit the file to the git . it is used as ("git commit -m "commit message") 
+git push  :-it is used to push the committed code into the specified branch and then after we can able to see the pushed content in ui
+            it is used as ("git push origin branch name")
+git branch :- it is used to create a new branch to the repository . It is used as ("git branch "name"")
+git checkout:- it is used to navigate from one branch to the other . it is used as ("git checkout -b "new branch name"")
+git diff  :- it is used to show the exact changes that were done in the file . it is used as ("git diff")
+git log   :- it is used to know the history of commits . it is used as ("git log")
+git log --oneline  :- it is used to get the logs as one line
+
+the commit id we get from the log file
+git reset hard:- it is used to get back to the previous commits . it is used as ("git reset --hard commit id")
+git remote add "location"  :- it is used to add the repository location to where the code is to be pushed
+
+ssh-keygen -t rsa   :- it is used to generate the key for ssh to clone the code from git
+
+clone   :- the process of retrieving code from a git branch is known as cloning it is used as ("git clone url")
+fork    :- it is a process of creating the copy of a repository
+git merge :-
+git rebase:-
+git cherry-pick:- it is used to add the particular commit to the required branch with the help of commit id from git log
+
+***********************AWS*************************
+
+Aws is a cloud provider and it follows a infrastructure as a service(IAAS) and platform as a service(PAAS)
+DevOps is always about automation and eficiency
+AWS services for DevOps
+1)ec2 services
+2)VPC(virtual private cloud
+3)EBS(volume or storage related services)
+4)s3(Storage)	
+5)IAM (Identity and access management)
+6)cloud watch :- takes care of monitoring in aws . It is constantly monitoring what are the actions performing in aws  
+7)Lamda   :- it is a serverless compute which are used for short actions
+8)cloud build services   :- aws provides some build services are  
+                            1)aws code pipeline
+                            2)aws code build
+                            3)aws code deploy
+9)aws configuration service  :-
+10) Billing & Costing
+11)AWS KMS(Key Management Service)  :- to keep the important files secure
+12)Cloud Trail  :- it is used to enable operational and risk audit . it records api activities
+13)aws eks(Elastic Kubernetes Service) :-
+
+*************************************configuration management (ANSIBLE)******************************************
+
+Configuration Management :-it is useful for managing the configuration of multiple servers
+
+***Ansible is used to work on the different servers at one go from a single server ***
+
+examples for configuration management are puppet , chef , salt , ansible etc:-
+most nummber of devops engineers prefer to use ansible
+Ansible Playbooks :- ansible files are called as playbooks . it is used to perform multiple tasks
+ansible adhoc commands :- it is used to perform one or two tasks
+inventory file  :- the file which stores all the ip addressess of the target servers
+
+setting up the passwordless authentication   :- Copied the public ip address of the main server to the authorized key of the target server
+
+ansible -i inventory ipaddress   :- it will get the particular server from the inventory file
+ansible -i all    :- it will get all the servers from the inventory file  
+
+ansible adhoc command ex:-   ansible -i inventory all -m "module(shell)" -a "action performing (touch)"
+ansible playbook command  :- ansible-playbook -i inventory name of the playbook
+
+group the ip's in inventory file as [group name] and execute the script using adhoc commands by using group name
+
+ansible playbooks is in yml format
+
+"---" indicates the particular file is yml file 
+if we are performing multiple tasks then use "-" before each task to list the group of tasks
+
+#################################################################################
+******** sample ansible playbook in yml format ********* 
+---
+
+- name: install and start nginx
+  hosts: all
+  become: root
+
+tasks:
+  - name: install nginx
+    apt:
+      name: nginx
+      state: present
+  - name: start nginx
+    service:
+      name: nginx
+      state: started
+#################################################################################
+
+
+ansible roles:- it is the efficient way of writing ansible playbooks that will improve efficiency of complex playbooks
+ansible-galaxy role init kubernetes :- it is used to create roles
+
+
+
+***************************************************CI/CD(Jenkins)*******************************************************
+CI(Continuous Integration) :- It is a process to integrate set of tools/processess that follows before delivering the application
+CD(Continuous Delivery)    :- It is a process of deploy application on a specific platform
+
+Jenkins  :- Jenkins is an archestrator which will integrate all the processess that needs to be done using pipeline
+
+groovy script used in the pipeline 
+
+ex:-  pipeline{
+tools{
+tool 1
+}
+stages{
+stage("1"){
+steps{
+step 1
+step 2
+}
+post{
+success{
+}
+}
+
+
+*******************************************Infrastructure as code (TERRAFORM)*******************************************
+Terraform :- It is an infrastructure as code (IAC) . A tool that allows you to build, change and version infrastructure safely and
+             efficiently
+terraform will convert to  configuration file to provider that api will understand 
+it is used for 
+1)managing the infrastructure
+2)track the infrastructure
+3)automate changes
+4)standardize the configurations
+5)collaborate
+
+the language used is hashicorp lang
+
+terraform runs on 4 commands 
+1) Terrform init  - initialize
+2)terraform plan  - dry run it gives us what exactly will be performing before execute the script
+3)terraform apply  - execute
+4)terraform destroy- destroy
