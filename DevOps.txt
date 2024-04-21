@@ -1,4 +1,23 @@
 DevOps :- DevOps is a process of improving the application delivery by ensuring that there is a proper automation and quality and continuous monitoring and there is a continuous testing
+################################################################################################################################
+                                                          DevOps TOOLS
+
+CLOUD  		   		*** :- AWS/Azure 
+OPERATING SYSTEM   		*** :- LINUX(UBUNTU)
+VERSION CONTROL SYSTEM		*** :- GITHUB
+CONFIGURATION MANAGEMENT	*** :- ANSIBLE
+INFRASTRUCTURE MANAGEMENT	*** :- TERRAFORM
+CI/CD FOR AUTOMATION		*** :- JENKINS / GITHUB ACTIONS
+BUILD AUTOMATION TOOL		**  :- MAVEN
+CONTAINERIZATION TOOL		*** :- DOCKER
+CONTAINER ARCHESTRATION SYSTEM	*** :- KUBERNETES
+TEST AUTOMATION TOOL		**  :- SELENIUM
+PROJECT MGMT &  ISSUE TRACKING	**  :- JIRA
+PERFORMANCE MONITORING		*** :-DATADOG / SPLUNK / SLACK
+ARTIFACTORY			**  :- JFROG
+
+################################################################################################################################
+
 
 ***AWS***
 
