@@ -2,24 +2,23 @@ DevOps :- DevOps is a process of improving the application delivery by ensuring 
 ################################################################################################################################
                                                           DevOps TOOLS
 
-CLOUD  		   		*** :- AWS/Azure 
-OPERATING SYSTEM   		*** :- LINUX(UBUNTU)
-VERSION CONTROL SYSTEM		*** :- GITHUB
-CONFIGURATION MANAGEMENT	*** :- ANSIBLE
-INFRASTRUCTURE MANAGEMENT	*** :- TERRAFORM
-CI/CD FOR AUTOMATION		*** :- JENKINS / GITHUB ACTIONS
-BUILD AUTOMATION TOOL		**  :- MAVEN
-CONTAINERIZATION TOOL		*** :- DOCKER
-CONTAINER ARCHESTRATION SYSTEM	*** :- KUBERNETES
-TEST AUTOMATION TOOL		**  :- SELENIUM
-PROJECT MGMT &  ISSUE TRACKING	**  :- JIRA
-PERFORMANCE MONITORING		*** :-DATADOG / SPLUNK / SLACK
-ARTIFACTORY			**  :- JFROG
+CLOUD  		   		### :- AWS/Azure 
+OPERATING SYSTEM   		### :- LINUX(UBUNTU)
+VERSION CONTROL SYSTEM		### :- GITHUB
+CONFIGURATION MANAGEMENT	### :- ANSIBLE
+INFRASTRUCTURE MANAGEMENT	### :- TERRAFORM
+CI/CD FOR AUTOMATION		### :- JENKINS / GITHUB ACTIONS
+BUILD AUTOMATION TOOL		##  :- MAVEN
+CONTAINERIZATION TOOL		### :- DOCKER
+CONTAINER ARCHESTRATION SYSTEM	### :- KUBERNETES
+TEST AUTOMATION TOOL		##  :- SELENIUM
+PROJECT MGMT &  ISSUE TRACKING	##  :- JIRA
+PERFORMANCE MONITORING		### :-DATADOG / SPLUNK / SLACK
+ARTIFACTORY			##  :- JFROG
 
 ################################################################################################################################
 
-
-***AWS***
+###AWS###
 
 What is cloud :- Global network of server each with a unique function
 public cloud :- AWS, Azure, GCP
@@ -52,14 +51,15 @@ User name
 test-user-501
 Console password
 
-h*fJ4|x{
+h#fJ4|x{
 Hide
 
 
 virtualization:- a physical server brought from HP or IBM will install a hypervisor to not to waste the server with only one user 
+                 a machine which is built on top of the physical machine is knwon as virtual machine .and the process of creating
+                 virtual machines is known as virtualization
 
-Hypervisor:- It is a software that can install virtual machines on physical server using logical isolation 
-some of the popular hypervisers is VMWARE , XEN
+Hypervisor:- It is a software that can install virtual machines on physical server using logical isolation some of the popular hypervisers 	     are VMWARE , XEN
 
 Script for automation :- aws cli , aws api, aws cft , aws cdk ,TERRAFORM directly communicating with api
 
@@ -159,7 +159,7 @@ set -e  :- it is  used to throw an error at a particular point where the script 
            commands. it only takes the last function in a pipe argument
 set -o pipefail   :- it is used along with the set -e . it is useful for throwing an error at the point where script is not correct even
                      for the pipe commands
-** we can use all at once by appending :- set -exo pipefail
+## we can use all at once by appending :- set -exo pipefail
 
 logfile  :- it is useful for finding the errors in log file
 curl  :- it is useful for retrieving the information from internet. as well as for the api requests and responses like postman  
@@ -203,7 +203,7 @@ jq       :- it is used to read the json
 aws ec2 describe-instances | jq '.;;;;;;[].;;;;;;[].;;;;;;'
 
 
-************************************************************GIT********************************************************
+############################################################GIT########################################################
 
 FORK  :- it is a copy of entire original source
 git inti  :- it is used to initialize the empty git repository . it is used as ("git init")
@@ -230,7 +230,7 @@ git merge :-
 git rebase:-
 git cherry-pick:- it is used to add the particular commit to the required branch with the help of commit id from git log
 
-***********************AWS*************************
+#######################AWS#########################
 
 Aws is a cloud provider and it follows a infrastructure as a service(IAAS) and platform as a service(PAAS)
 DevOps is always about automation and eficiency
@@ -252,11 +252,11 @@ AWS services for DevOps
 12)Cloud Trail  :- it is used to enable operational and risk audit . it records api activities
 13)aws eks(Elastic Kubernetes Service) :-
 
-*************************************configuration management (ANSIBLE)******************************************
+#####################################configuration management (ANSIBLE)##########################################
 
 Configuration Management :-it is useful for managing the configuration of multiple servers
 
-***Ansible is used to work on the different servers at one go from a single server ***
+###Ansible is used to work on the different servers at one go from a single server ###
 
 examples for configuration management are puppet , chef , salt , ansible etc:-
 most nummber of devops engineers prefer to use ansible
@@ -280,7 +280,7 @@ ansible playbooks is in yml format
 if we are performing multiple tasks then use "-" before each task to list the group of tasks
 
 #################################################################################
-******** sample ansible playbook in yml format ********* 
+######## sample ansible playbook in yml format ######### 
 ---
 
 - name: install and start nginx
@@ -304,7 +304,7 @@ ansible-galaxy role init kubernetes :- it is used to create roles
 
 
 
-***************************************************CI/CD(Jenkins)*******************************************************
+###################################################CI/CD(Jenkins)#######################################################
 CI(Continuous Integration) :- It is a process to integrate set of tools/processess that follows before delivering the application
 CD(Continuous Delivery)    :- It is a process of deploy application on a specific platform
 
@@ -327,8 +327,47 @@ success{
 }
 }
 
+GITHUB ACTIONS is also a ci/cd solution it will do similar task as jenkins do. but github actions is a platform dependent if we change 
+from github to gitlab then it won't work
+## what are the actions that needs to be done is written in the github actions yml file . if that particular activity happens in the github then it will start working on what we have written in yml file . the yml file should be in the .github/workflows folder in github
 
-*******************************************Infrastructure as code (TERRAFORM)*******************************************
+###########################
+Setting up webhooks from GitHub to Jenkins allows you to trigger Jenkins jobs automatically whenever certain events occur in your GitHub repositories, such as pushing code changes. Here's a step-by-step guide to setting up this integration:
+
+Install Jenkins GitHub Plugin (if not already installed):
+If you haven't already, install the GitHub plugin for Jenkins. You can do this by navigating to Manage Jenkins -> Manage Plugins -> Available tab, and then searching for and installing the "GitHub Integration Plugin".
+Set up GitHub Personal Access Token (if not already done):
+Generate a GitHub personal access token with the necessary permissions. This token will be used by Jenkins to authenticate with GitHub. You can generate a token in your GitHub account settings under Developer settings -> Personal access tokens. Make sure to grant the necessary permissions for repository access.
+Configure GitHub Integration in Jenkins:
+In Jenkins, go to Manage Jenkins -> Configure System.
+Scroll down to the section titled "GitHub" or "GitHub Enterprise", depending on your GitHub setup.
+Click on Add GitHub Server to add your GitHub account. Enter a name for the server, and then provide your GitHub personal access token.
+Click Add and then Test Connection to ensure Jenkins can connect to your GitHub account successfully.
+Create a Jenkins Job:
+Create or select the Jenkins job you want to trigger with GitHub webhooks.
+Configure Jenkins Job to Trigger on GitHub Webhook:
+In the Jenkins job configuration, scroll down to the "Build Triggers" section.
+Check the option "GitHub hook trigger for GITScm polling". This option enables Jenkins to trigger the job when it receives a webhook from GitHub.
+Save the Jenkins job configuration.
+Set up GitHub Webhook:
+Go to your GitHub repository's settings.
+Select Webhooks from the menu on the left.
+Click on Add webhook.
+In the Payload URL field, enter the URL of your Jenkins server followed by /github-webhook/. For example: http://your-jenkins-server/github-webhook/.
+Set the Content type to application/json.
+Under "Which events would you like to trigger this webhook?", select the events that should trigger the webhook. Typically, you would select "Just the push event" to trigger the webhook on code pushes, but you can select other events as needed.
+Ensure the webhook is active and click Add webhook to save.
+Test the Integration:
+Make a test commit or push to your GitHub repository to trigger the webhook.
+Check Jenkins to see if the configured job is triggered automatically in response to the GitHub webhook.
+Once set up, your Jenkins job should now be triggered automatically whenever the specified GitHub events occur.
+                                                                                               ####################################
+
+###################################################Project Management (JIRA)############################################
+
+
+
+###########################################Infrastructure as code (TERRAFORM)###########################################
 Terraform :- It is an infrastructure as code (IAC) . A tool that allows you to build, change and version infrastructure safely and
              efficiently
 terraform will convert to  configuration file to provider that api will understand 
@@ -346,3 +385,17 @@ terraform runs on 4 commands
 2)terraform plan  - dry run it gives us what exactly will be performing before execute the script
 3)terraform apply  - execute
 4)terraform destroy- destroy
+
+#################################################### Containarization (DOCKER) ################################################
+
+Conatiners are the advancement to virtual machines
+Docker can be created on top of virtual machine or a physical machine
+Docker containers are very light weight in nature as they are not having complete operating system .
+They use resources from the base operating system
+containers have minimal operating system or a base image
+A container is a package/bundle with a combination of application, libraries and system dependencies
+These docker containers are very easy to transfer
+
+To create a docker container . firstly create a docker file , docker file to docker image , docker image to docker container
+for creating container needs to send the commands to the docker engine 
+** the command that needs to convert docker file to docker image is docker build and docker image to container is docker run
