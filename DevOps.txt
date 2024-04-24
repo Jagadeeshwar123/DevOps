@@ -399,3 +399,14 @@ These docker containers are very easy to transfer
 To create a docker container . firstly create a docker file , docker file to docker image , docker image to docker container
 for creating container needs to send the commands to the docker engine 
 ** the command that needs to convert docker file to docker image is docker build and docker image to container is docker run
+
+Docker deamon :- it is the heart of docker . it will take the docker cli commands and execute those commands
+Docker registry :- it is a place where we store the docker images
+Docker Hub :- it is a place where we share images with the external world
+
+GIT Hub is a version control system which stores the source code where as dockerhub is also a version control system which stores 
+docker images
+
+Docker file :- docker file is where we write the set fo instructions to docker deamon
+
+sudo usermod -aG docker ubuntu   :- it is used to add the user to ubuntu group
