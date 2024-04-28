@@ -431,3 +431,19 @@ Docker Images:-
 An image is a read-only template with instructions for creating a Docker container. Often, an image is based on another image, with some additional customization. For example, you may build an image which is based on the ubuntu image, but installs the Apache web server and your application, as well as the configuration details needed to make your application run.
 
 You might create your own images or you might only use those created by others and published in a registry. To build your own image, you create a Dockerfile with a simple syntax for defining the steps needed to create the image and run it. Each instruction in a Dockerfile creates a layer in the image. When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt. This is part of what makes images so lightweight, small, and fast, when compared to other virtualization technologies.
+
+format of the docker image :
+########################################################################
+FROM UBUNTU
+WORKDIR folder
+COPY if needed
+
+RUN command what we need
+
+ENTRYPOINT [""] - it is a non over ridable value which cannot be changed further
+CMD[""]  - it can be changed if needed 
+########################################################################
+
+ENTRYPOINT and CMD both are used to specify the command that should be executed when a container is started
+
+Distroless images :- it is a very light weight docker image that will have only runtime environments. it has highest security
