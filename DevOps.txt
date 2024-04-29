@@ -447,3 +447,20 @@ CMD[""]  - it can be changed if needed
 ENTRYPOINT and CMD both are used to specify the command that should be executed when a container is started
 
 Distroless images :- it is a very light weight docker image that will have only runtime environments. it has highest security
+
+################################### CONTAINER ORCHESTRATION PLATFORM (KUBERNETES) #######################################
+
+Kubernetes is a container orchestration platform 
+
+Containers have short life (ephemeral) in nature . They can die and revive any time
+
+docker has many problems some of them are 
+1)single host
+2)Auto healing
+3)Auto scaling
+4)Enterprise support
+
+all these problems are solved by Kubernetes
+Kubernetes  is a cluster(Group of nodes)
+
+It is a master node architecture
