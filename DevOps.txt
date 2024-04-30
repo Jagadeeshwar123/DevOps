@@ -203,7 +203,7 @@ jq       :- it is used to read the json
 aws ec2 describe-instances | jq '.;;;;;;[].;;;;;;[].;;;;;;'
 
 
-############################################################GIT########################################################
+############################################################ GIT ########################################################
 
 FORK  :- it is a copy of entire original source
 git inti  :- it is used to initialize the empty git repository . it is used as ("git init")
@@ -230,7 +230,7 @@ git merge :-
 git rebase:-
 git cherry-pick:- it is used to add the particular commit to the required branch with the help of commit id from git log
 
-#######################AWS#########################
+####################### AWS #########################
 
 Aws is a cloud provider and it follows a infrastructure as a service(IAAS) and platform as a service(PAAS)
 DevOps is always about automation and eficiency
@@ -407,6 +407,9 @@ for creating container needs to send the commands to the docker engine
 
 ("docker build -t github user/filename:latest .") - it is to build the docker image
 ("docker run -it imageid") - it is to run the image
+("docker push DockerHubusername/myimage:latest ") - it is used to push the docker images to the docker hub registry
+("docker images")  - It is used to get the images which are present
+("docker images | head-5 ")  - By using this we can get the  top 5 images among all 
 
 Docker daemon:-
 The Docker daemon (dockerd) listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. A daemon can also communicate with other daemons to manage Docker services.
@@ -433,6 +436,18 @@ An image is a read-only template with instructions for creating a Docker contain
 You might create your own images or you might only use those created by others and published in a registry. To build your own image, you create a Dockerfile with a simple syntax for defining the steps needed to create the image and run it. Each instruction in a Dockerfile creates a layer in the image. When you change the Dockerfile and rebuild the image, only those layers which have changed are rebuilt. This is part of what makes images so lightweight, small, and fast, when compared to other virtualization technologies.
 
 format of the docker image :
+
+Docker volume :- 
+It allows data to persist(prevent) even when the container is no longer running. Volumes are used for storing and sharing data between Docker containers and the host machine, or between multiple containers.
+Docker bind mount :-
+A bind mount in Docker is a method for mounting a directory on the host machine into a container, effectively linking a directory or file from the host's filesystem into the container's filesystem. With bind mounts, the container and the host share the same filesystem location, so any changes made in either the container or the host are immediately visible to the other.
+
+docker volume ls - It is used to list the docker volumes
+docker volume create "name"  - It is used to create a volume
+docker volume inspect "name" - It is used to get the details of the specific volume
+docker volume rm "name"  - It is used to delete the volume 
+docker run -d --mount source="name",target="target location" image
+
 ########################################################################
 FROM UBUNTU
 WORKDIR folder
