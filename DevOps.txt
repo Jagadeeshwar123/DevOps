@@ -387,6 +387,17 @@ terraform runs on 4 commands
 4)terraform destroy- destroy
 
 #################################################### Containarization (DOCKER) ################################################
+Docker is one of the software to provide image and container capability
+1.	There will be no hypervisor, hardware, OS, container engine
+2.	Container or image is the combination of Base OS + required packages + app server + app code
+3.	It will not block storage, proper resource utilization and bootable time is very less
+4.	Cost is very less
+5.	High availability: - if one server goes down immediately app will be shifted to another server
+6.	Auto scaling: - based on traffic, app instances will be increased within seconds
+7.	Reliability: - Trust on applications availability
+8.	Consistent environment
+9.	Containers are immutable in nature
+Portable in nature, Easy to shift between the environments 	
 
 Conatiners are the advancement to virtual machines
 Docker can be created on top of virtual machine or a physical machine
